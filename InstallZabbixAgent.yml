@@ -10,7 +10,7 @@
       chdir: C:\Zabbix\
 
   - name: Restart a service
-    ansible.windows.win_service:
+    win_service:
       name: Zabbix Agent
       state: started
  
