@@ -1,0 +1,16 @@
+---
+- name: Instalação do Zabbix Agent
+  hosts: all
+  tasks:
+
+#Instalação sendo efetuada a partir dos dados já estarem no local adequado.
+  - name: Instalando Zabbix Agent
+    win_command: zabbix_agentd.exe -i -c zabbix_agentd.conf              
+    args:
+      chdir: C:\Zabbix\
+
+  - name: Restart a service
+    ansible.windows.win_service:
+      name: Zabbix Agent
+      state: started
+ 
